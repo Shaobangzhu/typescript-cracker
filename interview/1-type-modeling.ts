@@ -1,21 +1,18 @@
-// Q1. 类型建模
-// 后端（.NET + BANNER）返回一个学生对象：
+// Q1 — Type Modeling (Interfaces)
+// The backend (.NET + Banner student information system) returns the following JSON:
 // {
 //   "studentId": 12345,
-//   "name": {
-//     "first": "John",
-//     "last": "Doe"
-//   },
+//   "name": { "first": "John", "last": "Doe" },
 //   "enrollment": [
 //     { "quarter": "2024F", "units": 16, "status": "enrolled" }
 //   ],
 //   "isInternational": false
 // }
-// 请用 TypeScript 定义上述对象的类型：
-// - Student
+// Write TypeScript types for:
 // - Name
 // - EnrollmentRecord
-// - Status（仅允许 'enrolled' | 'waitlist' | 'dropped'）
+// - Status (only "enrolled" | "waitlist" | "dropped")
+// - Student
 
 type Status = 'enrolled' | 'waitlist' | 'dropped';
 
