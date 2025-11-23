@@ -13,23 +13,24 @@
 // - EnrollmentRecord
 // - Status (only "enrolled" | "waitlist" | "dropped")
 // - Student
+{
+  type Status = 'enrolled' | 'waitlist' | 'dropped';
 
-type Status = 'enrolled' | 'waitlist' | 'dropped';
+  interface Name {
+    first: string;
+    last: string;
+  }
 
-interface Name {
-  first: string;
-  last: string;
-}
+  interface EnrollmentRecord {
+      quarter: string;
+      units: number;
+      status: Status;
+  }
 
-interface EnrollmentRecord {
-    quarter: string;
-    units: number;
-    status: Status;
-}
-
-interface Student {
-    studentId: number;
-    name: Name;
-    enrollment: EnrollmentRecord[];
-    isInternational: boolean;
+  interface Student {
+      studentId: number;
+      name: Name;
+      enrollment: EnrollmentRecord[];
+      isInternational: boolean;
+  }
 }
