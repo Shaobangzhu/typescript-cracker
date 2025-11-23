@@ -42,4 +42,11 @@ function isActiveStudent(records: TermRecord[]): boolean {
 // Once I hit a third quarter, I break, because anything older than the last two quarters shouldn’t affect the decision.
 // Finally, I call some on considered to check if there is at least one term with units >= 8 and tuitionPaid === true.
 // If such a term exists, the student is active; otherwise, they’re not.
+
+// About using set to deduplicate quarters:
+// We use a Set not to remove duplicate records, but to deduplicate quarters.
+// The business requirement is to consider the last two distinct quarters, not the last two records.
+// Using a Set lets us track distinct quarters cleanly and stop iterating once we reach a third quarter.
+// Repeated term records don’t cause issues here because the final decision is an “existence” check — 
+// we only need to know if at least one record in those two quarters satisfies units ≥ 8 and tuitionPaid = true.
 }
