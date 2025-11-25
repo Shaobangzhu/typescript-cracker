@@ -1,4 +1,4 @@
-// Q4 Simple Factory -- Creating Tuition Rule
+// Q14 Simple Factory -- Creating Tuition Rule
 // Add a simple factory function to create the appropriate TuitionRule:
 {
     interface TuitionRule {
