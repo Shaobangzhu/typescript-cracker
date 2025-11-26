@@ -16,5 +16,8 @@
     "parcel": "^2.13.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.2"
   }
 }
