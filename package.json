@@ -4,7 +4,7 @@
   "description": "Learn Advanced TypeScript Knowledge",
   "main": "why-use-prototype.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node ./src/index.ts",
     "dev": "nodemon --watch src/ -e ts --exec ts-node ./src/index.ts",
     "start": "parcel ./index.html"
   },
