@@ -1,5 +1,6 @@
 // Q3 — Utility Types (Pick / Partial / Omit)
 // Given:
+{
 interface Student {
   id: number;
   studentName: string;
@@ -16,7 +17,7 @@ type StudentContact = Pick<Student, 'studentName' | 'email'>;
 function updateStudent(original: Student, update: Partial<Student>): Student {
   return { ...original, ...update };
 }
-
+}
 // { ...original, ...update } means creating a new object by copying all fields from original and then 
 // overriding only the fileds provided in updateStudent. It performs a shallow merge and is the most common 
 // pattern for implementing PATCH-style updates in TypeScriopt.
