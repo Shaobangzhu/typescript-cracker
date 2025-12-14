@@ -20,3 +20,14 @@ function groupBy<T, K extends string | number | symbol>(
 
     return result;
 }
+
+function groupByReduce<T, K extends string | number | symbol>(
+    items: T[],
+    getKey: (item: T) => K
+): Record<K, T[]> {
+    return items.reduce((accumutaltor, current) => {
+        const key = getKey(current);
+        (accumutaltor[key] ?? []).push(current);
+        return accumutaltor;
+    }, {} as Record<K, T[]>);
+}
