@@ -13,29 +13,25 @@ function filterStudents(
     residency?: Student['residency'],
 ): Student[] {
     const normalizedSearch = search?.trim().toLowerCase();
-    const hasSearch = !!normalizedSearch;
 
-    return students.filter((student) => {
-        // 1. free-text search on name/email (case-insensitive)
-        if (hasSearch) {
-            const nameMatch = student.name.toLowerCase().includes(normalizedSearch!);
-            const emailMatch = student.email.toLowerCase().includes(normalizedSearch!);
+    return students.filter(student => {
+        if (normalizedSearch) {
+            const matchStudentName = student.name.toLowerCase().includes(normalizedSearch);
+            const matchEmail = student.email.toLocaleLowerCase().includes(normalizedSearch);
 
-            if (!nameMatch && !emailMatch) {
+            if (!matchStudentName || !matchEmail) {
                 return false;
             }
         }
 
-        // 2. optional status filter
         if (status && student.status !== status) {
             return false;
         }
 
-        // 3. optional residency filter
         if (residency && student.residency !== residency) {
             return false;
         }
 
         return true;
-    })
+    });
 }
