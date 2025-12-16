@@ -13,6 +13,9 @@ function filterStudents(
     residency?: Student['residency'],
 ): Student[] {
     const normalizedSearch = search?.trim().toLowerCase();
+    // !! 双重取反,把值强行变成boolean 
+    // undefined, "" -> false
+    // 任何非空字符串 -> true
     const hasSearch = !!normalizedSearch;
 
     return students.filter((student) => {
