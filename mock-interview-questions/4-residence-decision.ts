@@ -21,19 +21,19 @@
     // 先做一个decision的map，加速按ID查找
     const decisionMap = new Map(decisions.map((d) => [d.id, d]));
 
-    return students.map((students) => {
-      const decision = decisionMap.get(students.id);
-      if (!decision) return students; // 无对应decision -> 原样返回
+    return students.map((student) => {
+      const decision = decisionMap.get(student.id);
+      if (!decision) return student; // 无对应decision -> 原样返回
 
       // 有decision -> 更新residency
       const updated: StudentRecord = {
-        ...students,
+        ...student,
         residency: decision.residency,
       };
 
       // 如果需要review -> flags 要append reason (不可变更新)
       if (decision.residency === "needsReview") {
-        updated.flags = [...(students.flags ?? []), decision.reason];
+        updated.flags = [...(student.flags ?? []), decision.reason];
       }
 
       return updated;
